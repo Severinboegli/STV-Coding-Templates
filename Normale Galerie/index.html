@@ -1,0 +1,231 @@
+<style type="text/css">
+    * {
+        box-sizing: border-box
+    }
+
+    body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 45%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/9 etc) */
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fadeX {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 2s;
+        animation-name: fade;
+        animation-duration: 2s;
+    }
+
+
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+
+        .prev,
+        .next,
+        .text {
+            font-size: 11px
+        }
+    }
+</style>
+<div class="slideshow-container"><!-- Bild von Variosystems Studio Fasching -->
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/805132/0/Variosystems_Photo_StudioFasching_IMG_4313.jpg"
+            style="width:100%" />
+    </div>
+    <!-- Bild von Lidl -->
+
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/805132/0/lidl_lager.jpg" style="width:100%" />
+    </div>
+    <!-- Bild von Tour de Swiss Fahrrad -->
+
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/805132/0/amerigo+assembly+IMG_6794.jpg"
+            style="width:100%" />
+    </div>
+    <!-- Bild von Chevy Ranch -->
+
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/805132/0/Chevy-Ranch_1 klein.jpg" style="width:100%" />
+    </div>
+    <!-- Bild von Ramon Hegi Tour de Swiss-->
+
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/805132/0/ramon+hegi+lackieren+IMG_6790.jpg"
+            style="width:100%" />
+    </div>
+    <!-- Bild von ETH Zürich Rennwagen--><!--
+  <div class="mySlides fadeX">
+    <div class="numbertext">&nbsp;</div>
+    <img src="https://www.swissengineering.ch/documents/805132/0/DSC00260.JPG" style="width:100%" />
+  </div>
+  --><!-- Bild von Präsentantor -->
+
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/637588/1185552/0f5dba14f0.jpg" style="width:100%" />
+    </div>
+    <!-- Bild während Apéro -->
+
+    <div class="mySlides fadeX">
+        <div class="numbertext">&nbsp;</div>
+        <img src="https://www.swissengineering.ch/documents/637588/1185552/IMG_7168.JPG" style="width:100%" />
+    </div>
+    <!-- Bild von Girsberger Group --><!--
+  <div class="mySlides fadeX">
+    <div class="numbertext">&nbsp;</div>
+    <img src="https://www.swissengineering.ch/documents/805132/0/GirsbergerGroup.jpeg" style="width:100%" />
+  </div>
+  --><a class="prev" onclick="plusSlides(-1)">❮</a> <a class="next" onclick="plusSlides(1)">❯</a> &nbsp;
+
+    <div style="text-align:center">
+        <div class="dot" onclick="currentSlide(1)">&nbsp;</div>
+
+        <div class="dot" onclick="currentSlide(2)">&nbsp;</div>
+
+        <div class="dot" onclick="currentSlide(3)">&nbsp;</div>
+
+        <div class="dot" onclick="currentSlide(4)">&nbsp;</div>
+
+        <div class="dot" onclick="currentSlide(5)">&nbsp;</div>
+
+        <div class="dot" onclick="currentSlide(6)">&nbsp;</div>
+
+        <div class="dot" onclick="currentSlide(7)">&nbsp;</div>
+        <!--
+    <div class="dot" onclick="currentSlide(8)">&nbsp;</div>
+
+
+    <div class="dot" onclick="currentSlide(9)">&nbsp;</div>
+    -->
+    </div>
+
+    <p>Die Sektion Thurgau unterstützt ihre Mitglieder, Ingenieure und Architekten im beruflichen Schaffen und im
+        Austausch ihres Fachwissens untereinander mit einer dafür geeigneten Plattform. Die Sektion pflegt den Kontakt
+        zu den Nachbarsektionen, Partnerverbänden und Kantonalen Verwaltungen.</p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Ziele</strong></p>
+
+    <p>Die Sektion Thurgau bietet ihren Mitgliedern eine Networking Plattform an, welche ihnen die Möglichkeit eröffnet
+        mit anderen Fachkollegen und mit unseren Förderfirmen in Kontakt zu treten. Den Förderfirmen auf der anderen
+        Seite ermöglichen wir, mit Ingenieuren und Architekten in Kontakt zu treten.<br />
+        Neben Vorträgen aus den klassischen Ingenieursdisziplinen sind auch Themen aus der Organisation geplant, bei
+        diesem Thema wird der Mensch als Individuum in den Mittelpunkt gestellt.</p>
+
+    <p>&nbsp;</p>
+
+    <p><strong>Social Media</strong></p>
+
+    <p>Folgen Sie uns auch auf unserer <a
+            href="https://www.linkedin.com/showcase/sektion-thurgau---swiss-engineering-stv/?viewAsMember=true" style="color: #0078b7;
+    text-decoration: none;
+    font-weight: bold;">LinkedIn-Seite.</a></p>
+</div>

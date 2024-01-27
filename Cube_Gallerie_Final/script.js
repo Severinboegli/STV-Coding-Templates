@@ -1,5 +1,3 @@
-console.log("Beginning");
-
 var carousel = document.querySelector('.carousel');
 var cellCount = 9;
 var selectedIndex = 0;
@@ -21,32 +19,15 @@ function getCurrentRotationFixed(elid) {
     st.getPropertyValue("transform") ||
     "fail...";
 
-
   if (tr !== "none") {
-
-    var values = tr.split('(')[1];
-    values = values.split(')')[0];
-    values = values.split(',');
+    var values = tr.split('(')[1].split(')')[0].split(',');
     var a = values[0];
     var b = values[1];
-    var c = values[2];
-    var d = values[3];
-
-    var scale = Math.sqrt(a * a + b * b);
-
-    // First option, don't check for negative result
-    // Second, check for the negative result
-    /** /
-    var radians = Math.atan2(b, a);
-    var angle = Math.round( radians * (180/Math.PI));
-    /*/
     var radians = Math.atan2(b, a);
     if (radians < 0) {
       radians += (2 * Math.PI);
     }
     var angle = Math.round(radians * (180 / Math.PI));
-    /**/
-
   } else {
     var angle = 0;
   }
@@ -54,21 +35,32 @@ function getCurrentRotationFixed(elid) {
 
 function updateVisibility() {
   // Entferne die 'front'-Klasse von allen Zellen
-  cells.forEach(cell => cell.classList.remove('front'));
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].classList.remove('front');
+  }
 
   // Füge die 'front'-Klasse dem vordersten Fenster hinzu
   var frontCellIndex = (selectedIndex + cellCount) % cellCount;
+  var lastCellIndex = (selectedIndex + cellCount - 1) % cellCount;
+
+  for (var i = 0; i < cells.length; i++) {
+    if (i != lastCellIndex) {
+      cells[i].classList.remove('block');
+    }
+  }
+
   cells[frontCellIndex].classList.add('front');
+  cells[frontCellIndex].classList.add('block');
 }
 
 function plusSlides() {
   selectedIndex++;
   rotateCarousel();
-  cells.forEach(getCurrentRotationFixed);
+  for (var i = 0; i < cells.length; i++) {
+    getCurrentRotationFixed(cells[i]);
+  }
 }
 
-// Berechung der translateZ-Eigenschaft für die .carousel__cell-Elemente
-// Dies es möglich, dass die Galerie dynamisch werden kann.
 function calculateTranslateZ() {
   var sceneWidth = document.querySelector('.scene').offsetWidth;
   var angle = 18; // Winkel in Grad
@@ -82,24 +74,19 @@ function updateCarousel() {
   carousel.style.transform = 'translateZ(' + -translateZ + 'px) rotateY(' + selectedIndex / cellCount * -360 + 'deg)';
 
   // Aktualisiere die Zellenpositionen
-  var cells = document.querySelectorAll('.carousel__cell');
-  cells.forEach(function (cell, index) {
-    cell.style.transform = 'rotateY(' + index * (360 / cellCount) + 'deg) translateZ(' + translateZ + 'px)';
-  });
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].style.transform = 'rotateY(' + i * (360 / cellCount) + 'deg) translateZ(' + translateZ + 'px)';
+  }
 }
 
-// Initialer Aufruf und Event-Listener für Größenänderungen
 updateCarousel();
 window.addEventListener('resize', updateCarousel);
-
+ 
 function autoChangeSide() {
   plusSlides();
   updateCarousel();
-  confirm.log("Interval");
 }
 
-// Alle 6 Sekunden das nächste Fenster anzeigen
 setInterval(autoChangeSide, 6000);
 
-// Füge die 'front'-Klasse dem initial vordersten Fenster hinzu
 updateVisibility();

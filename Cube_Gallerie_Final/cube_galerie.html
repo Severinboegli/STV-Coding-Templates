@@ -1,159 +1,183 @@
-<style type="text/css">
-    * {
-      box-sizing: border-box;
-    }
+<style type="text/css">* {
+  box-sizing: border-box;
+}
 
-    body {
-      font-family: sans-serif;
-    }
+body {
+  font-family: sans-serif;
+}
 
+.scene {
+  position: relative;
+  width: 60vh;
+  height: 300px;
+  margin: 40px auto 120px auto;
+  perspective: 1000px;
+}
+
+
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(-412px);
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  -webkit-transform: translateZ(-412px);
+  -moz-transform: translateZ(-412px);
+  -ms-transform: translateZ(-412px);
+  -o-transform: translateZ(-412px);
+}
+
+.carousel__cell {
+  position: absolute;
+  width: calc(60vh - 20px);
+  height: 280px;
+
+  left: 10px;
+  top: 10px;
+  line-height: 116px;
+  font-size: 80px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: none;
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
+  -webkit-transition: opacity 1s, transform 1s;
+  -moz-transition: opacity 1s, transform 1s;
+  -ms-transition: opacity 1s, transform 1s;
+  -o-transition: opacity 1s, transform 1s;
+}
+
+
+.carousel__cell img {
+  width: auto;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.carousel__cell.front {
+  opacity: 1;
+}
+
+.carousel__cell.block {
+  display: block;
+}
+
+@media screen and (max-width: 800px){
     .scene {
-      position: relative;
-      width: 60vh;
-      height: 300px;
-      margin: 40px auto;
+      width: calc(100% - 40px);
       perspective: 1000px;
-    }
+      margin: 40px auto 0 auto;
 
-    .carousel {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      transform: translateZ(-412px);
-      transform-style: preserve-3d;
-      transition: transform 1s;
-      -webkit-transform: translateZ(-412px);
-      -moz-transform: translateZ(-412px);
-      -ms-transform: translateZ(-412px);
-      -o-transform: translateZ(-412px);
     }
 
     .carousel__cell {
-      position: absolute;
-      width: calc(60vh - 20px);
-      height: 280px;
-
-      left: 10px;
-      top: 10px;
-      line-height: 116px;
-      font-size: 80px;
-      font-weight: bold;
-      color: white;
-      text-align: center;
-      ;
-      opacity: 0;
-      transition: opacity 1s, transform 1s;
-      -webkit-transition: opacity 1s, transform 1s;
-      -moz-transition: opacity 1s, transform 1s;
-      -ms-transition: opacity 1s, transform 1s;
-      -o-transition: opacity 1s, transform 1s;
+        width: auto;
+        margin: 0 auto;
     }
-
 
     .carousel__cell img {
-      width: auto;
-      height: 100%;
+        max-height: 300px;
     }
 
-    .carousel__cell.front {
-      opacity: 1;
-    }
+   }
 
-    .carousel__cell:nth-child(1) {
-      transform: rotateY(0deg);
-      -webkit-transform: rotateY(0deg);
-      -moz-transform: rotateY(0deg);
-      -ms-transform: rotateY(0deg);
-      -o-transform: rotateY(0deg);
-    }
+.carousel__cell:nth-child(1) {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+}
 
-    .carousel__cell:nth-child(2) {
-      transform: rotateY(40deg);
-      -webkit-transform: rotateY(40deg);
-      -moz-transform: rotateY(40deg);
-      -ms-transform: rotateY(40deg);
-      -o-transform: rotateY(40deg);
-    }
+.carousel__cell:nth-child(2) {
+  transform: rotateY(40deg);
+  -webkit-transform: rotateY(40deg);
+  -moz-transform: rotateY(40deg);
+  -ms-transform: rotateY(40deg);
+  -o-transform: rotateY(40deg);
+}
 
-    .carousel__cell:nth-child(3) {
-      transform: rotateY(80deg);
-      -webkit-transform: rotateY(80deg);
-      -moz-transform: rotateY(80deg);
-      -ms-transform: rotateY(80deg);
-      -o-transform: rotateY(80deg);
-    }
+.carousel__cell:nth-child(3) {
+  transform: rotateY(80deg);
+  -webkit-transform: rotateY(80deg);
+  -moz-transform: rotateY(80deg);
+  -ms-transform: rotateY(80deg);
+  -o-transform: rotateY(80deg);
+}
 
-    .carousel__cell:nth-child(4) {
-      transform: rotateY(120deg);
-      -webkit-transform: rotateY(120deg);
-      -moz-transform: rotateY(120deg);
-      -ms-transform: rotateY(120deg);
-      -o-transform: rotateY(120deg);
-    }
+.carousel__cell:nth-child(4) {
+  transform: rotateY(120deg);
+  -webkit-transform: rotateY(120deg);
+  -moz-transform: rotateY(120deg);
+  -ms-transform: rotateY(120deg);
+  -o-transform: rotateY(120deg);
+}
 
-    .carousel__cell:nth-child(5) {
-      transform: rotateY(160deg);
-      -webkit-transform: rotateY(160deg);
-      -moz-transform: rotateY(160deg);
-      -ms-transform: rotateY(160deg);
-      -o-transform: rotateY(160deg);
-    }
+.carousel__cell:nth-child(5) {
+  transform: rotateY(160deg);
+  -webkit-transform: rotateY(160deg);
+  -moz-transform: rotateY(160deg);
+  -ms-transform: rotateY(160deg);
+  -o-transform: rotateY(160deg);
+}
 
-    .carousel__cell:nth-child(6) {
-      transform: rotateY(200deg);
-      -webkit-transform: rotateY(200deg);
-      -moz-transform: rotateY(200deg);
-      -ms-transform: rotateY(200deg);
-      -o-transform: rotateY(200deg);
-    }
+.carousel__cell:nth-child(6) {
+  transform: rotateY(200deg);
+  -webkit-transform: rotateY(200deg);
+  -moz-transform: rotateY(200deg);
+  -ms-transform: rotateY(200deg);
+  -o-transform: rotateY(200deg);
+}
 
-    .carousel__cell:nth-child(7) {
-      transform: rotateY(240deg);
-      -webkit-transform: rotateY(240deg);
-      -moz-transform: rotateY(240deg);
-      -ms-transform: rotateY(240deg);
-      -o-transform: rotateY(240deg);
-    }
+.carousel__cell:nth-child(7) {
+  transform: rotateY(240deg);
+  -webkit-transform: rotateY(240deg);
+  -moz-transform: rotateY(240deg);
+  -ms-transform: rotateY(240deg);
+  -o-transform: rotateY(240deg);
+}
 
-    .carousel__cell:nth-child(8) {
-      transform: rotateY(280deg);
-      -webkit-transform: rotateY(280deg);
-      -moz-transform: rotateY(280deg);
-      -ms-transform: rotateY(280deg);
-      -o-transform: rotateY(280deg);
-    }
+.carousel__cell:nth-child(8) {
+  transform: rotateY(280deg);
+  -webkit-transform: rotateY(280deg);
+  -moz-transform: rotateY(280deg);
+  -ms-transform: rotateY(280deg);
+  -o-transform: rotateY(280deg);
+}
 
-    .carousel__cell:nth-child(9) {
-      transform: rotateY(320deg);
-      -webkit-transform: rotateY(320deg);
-      -moz-transform: rotateY(320deg);
-      -ms-transform: rotateY(320deg);
-      -o-transform: rotateY(320deg);
-    }
-  </style>
+.carousel__cell:nth-child(9) {
+  transform: rotateY(320deg);
+  -webkit-transform: rotateY(320deg);
+  -moz-transform: rotateY(320deg);
+  -ms-transform: rotateY(320deg);
+  -o-transform: rotateY(320deg);
+}
+</style>
+<div class="scene">
+<div class="carousel">
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/Variosystems_Photo_StudioFasching_IMG_4313.jpg" /></div>
 
-  <div class="scene">
-    <div class="carousel">
-      <div class="carousel__cell"><img
-          src="https://www.swissengineering.ch/documents/805132/0/Variosystems_Photo_StudioFasching_IMG_4313.jpg"
-          alt=""></div>
-      <div class="carousel__cell"><img src="https://www.swissengineering.ch/documents/805132/0/lidl_lager.jpg" alt="">
-      </div>
-      <div class="carousel__cell"><img
-          src="https://www.swissengineering.ch/documents/805132/0/amerigo+assembly+IMG_6794.jpg" alt=""></div>
-      <div class="carousel__cell"><img src="https://www.swissengineering.ch/documents/805132/0/Chevy-Ranch_1 klein.jpg"
-          alt=""></div>
-      <div class="carousel__cell"><img
-          src="https://www.swissengineering.ch/documents/805132/0/ramon+hegi+lackieren+IMG_6790.jpg" alt=""></div>
-      <div class="carousel__cell"><img src="https://www.swissengineering.ch/documents/637588/1185552/0f5dba14f0.jpg"
-          alt=""></div>
-      <div class="carousel__cell"><img src="https://www.swissengineering.ch/documents/637588/1185552/IMG_7168.JPG"
-          alt=""></div>
-      <div class="carousel__cell"><img src="https://www.swissengineering.ch/documents/805132/0/GirsbergerGroup.jpeg"
-          alt=""></div>
-      <div class="carousel__cell"><img src="https://www.swissengineering.ch/documents/805132/0/DSC00260.JPG" alt="">
-      </div>
-    </div>
-  </div>
-  <p style="text-align: center;">
-  </p>
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/lidl_lager.jpg" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/amerigo+assembly+IMG_6794.jpg" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/Chevy-Ranch_1 klein.jpg" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/ramon+hegi+lackieren+IMG_6790.jpg" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/637588/1185552/0f5dba14f0.jpg" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/637588/1185552/IMG_7168.JPG" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/GirsbergerGroup.jpeg" /></div>
+
+<div class="carousel__cell"><img alt="" src="https://www.swissengineering.ch/documents/805132/0/DSC00260.JPG" /></div>
+</div>
+</div>
+
+<p style="text-align: center;">&nbsp;</p>
+
+<script src="script.js"></script>
